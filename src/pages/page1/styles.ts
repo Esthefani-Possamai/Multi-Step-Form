@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div `
    p {
        font: 13px;
-       color: #b8b8d4;
+       color: #ad9978;
    }
 
    h1{
@@ -15,7 +15,7 @@ export const Container = styled.div `
    hr{
        height: 1px;
        border: 0;
-       background-color: #16195c;
+       background-color: #594c2a;
        margin: 30px 0px;
    }
 
@@ -28,7 +28,7 @@ export const Container = styled.div `
             width: 100%;
             border-radius: 10px;
             padding: 20px 10px;
-            border: 2px solid #25cd89;
+            border: 2px solid #619177;
             color: #fff;
             outline: 0;
             font-size: 16px;
@@ -37,7 +37,7 @@ export const Container = styled.div `
    }
 
    button {
-        background-color:  #25cd89;
+        background-color: #619177;
         color: #fff;
         font-size: 14px;
         font-weight:  bold;
@@ -48,5 +48,3 @@ export const Container = styled.div `
         margin-top: 30px;
    }
 `;
-
-/*Parei em  1hora e 7 minutos*/

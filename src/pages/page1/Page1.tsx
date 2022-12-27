@@ -1,14 +1,40 @@
-import React from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import * as C from './styles';
 import { Theme } from "../../components/theme";
+import { Navigate, useNavigate } from 'react-router-dom'
+//hook de navegação
+import { useForm, FormActions } from '../../contexts/FormContext'
 
 export const Page1 = () => {
 
-    const handleNextStep = () => {
-        
+    const Navigate = useNavigate()
+    const  {state, dispatch } = useForm()
 
+    //if e else para verificação. Só vou para a próxima página se os dados necessários da tela forem preenchidos. Nesse caso, se o nome não for vazio, vou para a próxima tela.
+    const handleNextStep = () => {
+        if (state.name !== '') {
+            Navigate('/page2')
+        }
+        else {
+            alert('Informe o seu nome!')
+        }
     }
 
+    //quando carregar essa tela, dou um dispatch atualizando o passo atual no contexto
+    useEffect (() => {
+        dispatch ({
+            type: FormActions.setCurrentStep,
+            payload: 1
+        })
+    }, [])
+
+    //alterando conforme digito no input - processo simultâneo
+    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch ({
+            type: FormActions.setName,
+            payload: e.target.value
+        });
+    }
     return(
         <Theme>
             <C.Container>
@@ -22,6 +48,8 @@ export const Page1 = () => {
                     Seu nome completo
                     <input type="text"
                         autoFocus
+                        value={state.name}
+                        onChange={handleNameChange}
                     />
                 </label>
 
