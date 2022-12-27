@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect } from "react";
 import * as C from './styles';
 import { Theme } from "../../components/theme";
-import { Navigate, useNavigate, Link } from 'react-router-dom'
-//hook de navegação
+import { useNavigate, Link } from 'react-router-dom'
 import { useForm, FormActions } from '../../contexts/FormContext'
 import { SelectOption } from "../../components/selectOption";
 
@@ -11,13 +10,10 @@ export const Page2 = () => {
     const Navigate = useNavigate()
     const  {state, dispatch } = useForm()
 
-    //if e else para verificação. Só vou para a próxima página se os dados necessários da tela forem preenchidos. Nesse caso, se o nome não for vazio, vou para a próxima tela.
     const handleNextStep = () => {
         Navigate('/page3')
     }
 
-    //quando carregar essa tela, dou um dispatch atualizando o passo atual no contexto
-    //caso eu recarregue essa página, o nome não estará salvo, logo, é feito o if para navegar a página de inserir o nome do usuário
     useEffect (() => {
         if (state.name === ''){
             Navigate('/')
@@ -30,7 +26,6 @@ export const Page2 = () => {
         }
     }, [])
 
-    //quando clico no campo de seleção, passo a props level com determinado valor, que por meio da função setLevel altera o valor de level no contexto
     const setLevel = (level:number) => {
         dispatch ({
             type: FormActions.setLevel,

@@ -8,10 +8,22 @@ body {
     sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-webkit-scrollbar-track {
+  background-color:  #161618;
+}
+::-webkit-scrollbar {
+  width: 10px;
+
+  background:  #161618;
+}
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+  border-radius: 30px;
 }

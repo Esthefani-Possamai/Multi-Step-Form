@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useReducer, ReactNode } from "react";
 
-//----------------------------------------------------------------------------
-//types dos dados armazenados
+//types 
 type State = {
     currentStep: number;
     name: string;
@@ -32,16 +31,13 @@ const initialData: State = {
     github: ''
 }
 
-//4 etapas diferentes
-//dados que podem ser acessados por toda a aplicação
+//Dados que podem ser acessados por toda a aplicação
 
-//----------------------------------------------------------------------------
-
-//Criar o Context - caixa que vai armazenar os dados
+//Context - armazenamento dos dados
 const FormContext = createContext<ContextType | undefined>(undefined);
-//createContext tem que ser inicializado com algum valor/argumento
+//createContext inicializado com algum valor/argumento
 
-//Criar o Reducer - executa ações específicas 
+//Reducer
 export enum FormActions {
     setCurrentStep,
     setName,
@@ -49,16 +45,12 @@ export enum FormActions {
     setEmail,
     setGithub
 }
-//para fazer alteração em qualquer tela das variáveis aqui contidas no enum, preciso importá-lo
+//para fazer alteração das variáveis em qualquer uma das telas, preciso importar o FormActions no escopo
 
-//----------------------------------------------------------------------------
-
-//recebi os dados, executei a ação de troca de dados "FormActions.setCurrentStep:" e retorno um novo state com o CurrentStep modificado
-//reducer é apenas para uso interno
 const formReducer = (state: State, action: Action ) => {
     switch(action.type){
         case FormActions.setCurrentStep:
-            //copio o estado que estava com ...state, e mudo o estado de currentStep
+            //copio o estado que estava com ...state e altero o estado de currentStep
             return {...state, currentStep: action.payload};
         case FormActions.setName:
             return {...state, name: action.payload};
@@ -73,10 +65,7 @@ const formReducer = (state: State, action: Action ) => {
     }
 } 
 
-//----------------------------------------------------------------------------
-
-//Criar o Provider - ambiente de acesso aos dados do contexto
-//o componente principal da aplicação
+//Provider - ambiente de acesso aos dados do contexto
 
 export const FormProvider = ({ children }: FormProviderProps) => {
 
@@ -91,10 +80,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     );
 }
 
-//----------------------------------------------------------------------------
-
-//Criar um Hook - simplificar o processo 
-
+//Hook
 export const useForm = () => {
     const context = useContext(FormContext);
 

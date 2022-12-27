@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect } from "react";
 import * as C from './styles';
 import { Theme } from "../../components/theme";
-import { Navigate, useNavigate, Link } from 'react-router-dom'
-//hook de navegação
+import { useNavigate, Link } from 'react-router-dom'
 import { useForm, FormActions } from '../../contexts/FormContext'
 
 export const Page3 = () => {
@@ -10,7 +9,6 @@ export const Page3 = () => {
     const Navigate = useNavigate()
     const  {state, dispatch } = useForm()
 
-    //if e else para verificação. Só vou para a próxima página se os dados necessários da tela forem preenchidos. Nesse caso, se o nome não for vazio, vou para a próxima tela.
     const handleNextStep = () => {
         if (state.email !== '' && state.github !== '') {
             Navigate('/page4')
@@ -20,7 +18,6 @@ export const Page3 = () => {
         }
     }
 
-    //quando carregar essa tela, dou um dispatch atualizando o passo atual no contexto
     useEffect (() => {
         if (state.name === ''){
             Navigate('/')
@@ -33,7 +30,6 @@ export const Page3 = () => {
         }
     }, [])
 
-    //alterando conforme digito no input - processo simultâneo
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch ({
             type: FormActions.setEmail,
@@ -47,6 +43,7 @@ export const Page3 = () => {
             payload: e.target.value
         });
     }
+
     return(
         <Theme>
             <C.Container>

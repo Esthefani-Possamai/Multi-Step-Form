@@ -13,6 +13,7 @@ type Props = {
     path: string;
     active: boolean;
 }
+
 export const SideBarItem = ({ title, description, icon, path, active }: Props) => {
     return (
         <C.Container>

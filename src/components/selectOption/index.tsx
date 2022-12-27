@@ -1,6 +1,4 @@
-import { StringDecoder } from 'string_decoder'
 import * as C from './styles'
-
 
 type Props = {
     title: string;

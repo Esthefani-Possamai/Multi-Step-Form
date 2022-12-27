@@ -1,6 +1,6 @@
 import React from "react";
 import * as C from './styles';
-import { Navigate, useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ReactComponent as Edit } from '../../images/Edit.svg';
 
 type Card = {
@@ -9,6 +9,7 @@ type Card = {
     email: string;
     github: string;
 }
+
 export const Card = ({nome, nivel, email, github}: Card) => {
 
     let perfil: string = ""

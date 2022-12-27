@@ -34,7 +34,7 @@ export const IconArea = styled.div <{active: boolean;}> `
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color #619177;
+    background-color: #619177;
     display: flex;
     justify-content: center;
     align-items: center;

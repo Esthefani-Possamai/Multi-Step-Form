@@ -11,7 +11,6 @@ export const Container = styled.div `
         margin: 20px 0px 0px 0px;
         padding: 0px;
         font-size: 30px;
-
     }
 
     p {

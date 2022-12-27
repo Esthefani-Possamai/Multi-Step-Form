@@ -10,7 +10,7 @@ export const Page1 = () => {
     const Navigate = useNavigate()
     const  {state, dispatch } = useForm()
 
-    //if e else para verificação. Só vou para a próxima página se os dados necessários da tela forem preenchidos. Nesse caso, se o nome não for vazio, vou para a próxima tela.
+    //if e else para verificação do preenchimento de dados.
     const handleNextStep = () => {
         if (state.name !== '') {
             Navigate('/page2')
@@ -20,12 +20,13 @@ export const Page1 = () => {
         }
     }
 
-    //quando carregar essa tela, dou um dispatch atualizando o passo atual no contexto
+    //quando carregar essa tela, é realizado um dispatch atualizando o passo atual no contexto.
     useEffect (() => {
         dispatch ({
             type: FormActions.setCurrentStep,
             payload: 1
         })
+        
     }, [])
 
     //alterando conforme digito no input - processo simultâneo
@@ -35,6 +36,7 @@ export const Page1 = () => {
             payload: e.target.value
         });
     }
+
     return(
         <Theme>
             <C.Container>
